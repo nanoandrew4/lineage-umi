@@ -1,0 +1,20 @@
+[
+	{
+		"DisableLocalBuilds": true,
+		"DisableGithubBuilds": false,
+		"MaxGithubReleasesPerRepo": 4,
+		"OldestGithubRelease": "",
+		"EnableLocalCache": false,
+		"EnableGithubCache": true,
+		"GithubCacheTimeout": 86400,
+		"OTAListTemplate": "ota-list-tables",
+		"BrandName": "",
+		"GithubHomeURL": "https://github.com/nanoandrew4/lineage-umi",
+		"DeviceNames": {
+			"umi": "Mi 10"
+		},
+		"DeviceVendors": {
+			"umi": "Xiaomi"
+		}
+	}
+]
