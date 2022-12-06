@@ -19,12 +19,19 @@ Security patch: \`$SECURITY_PATCH\`
 " > /tmp/release_notes.txt  
 
     if [ ! -z "${RELEASE_REPO_URL}" ] && [ ! -z "${GITHUB_TOKEN}" ]; then
+        optional_release_args=()
+        if [ "${DRAFT_RELEASES}" = true ]; then
+            optional_release_args+=("--draft")
+        fi
         gh release create "lineage-umi-$(join_by '-' $BUILT_VERSIONS)-$BUILD_DATE" \
         --repo $RELEASE_REPO_URL \
         --title "LineageOS $(join_by '/' $BUILT_VERSIONS) for Mi 10" \
         --notes-file /tmp/release_notes.txt \
+        "${optional_release_args[@]}" \
         /srv/zips/*
     else
         echo "RELEASE_REPO_URL or GITHUB_TOKEN env vars were not set, build will not be automatically released"
     fi
+else 
+    echo "No files exist in zip directly, assuming the build failed..."
 fi
