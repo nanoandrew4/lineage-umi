@@ -7,4 +7,7 @@ fi
 if [ "$ENLARGED_PARTITIONS" = 'true' ]; then
     echo "Changing umi.xml to target enlarged partitions branch"
     sed -i 's~device/xiaomi/umi" remote="github"~device/xiaomi/umi" remote="github" revision="'"$BRANCH_NAME"'-enlarged-partitions"~g' $LMANIFEST_DIR/umi.xml
+else
+    echo "Changing umi.xml to target unofficial partitions branch"
+    sed -i 's~remote="github"~remote="github" revision="'"$BRANCH_NAME"'-unofficial"~g' $LMANIFEST_DIR/umi.xml
 fi
