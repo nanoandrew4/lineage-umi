@@ -11,8 +11,3 @@ else
     echo "Changing umi.xml to target unofficial partitions branch"
     sed -i 's~remote="github"~remote="github" revision="'"$BRANCH_NAME"'-unofficial"~g' $LMANIFEST_DIR/umi.xml
 fi
-
-echo "Installing git-lfs..."
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-apt-get install git-lfs -y
-echo "git-lfs installed!"

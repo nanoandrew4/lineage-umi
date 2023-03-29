@@ -20,6 +20,8 @@ ENV ENLARGED_PARTITIONS false
 
 RUN apt-get -qq update && apt-get install -y apt-utils && apt-get install -y gh
 
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install git-lfs -y
+
 COPY manifests /srv/local_manifests
 COPY build_scripts /srv/userscripts
 
